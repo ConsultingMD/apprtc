@@ -537,22 +537,6 @@ class JoinPage(webapp2.RequestHandler):
     logging.info('User ' + client_id + ' joined room ' + room_id)
     logging.info('Room ' + room_id + ' has state ' + result['room_state'])
 
-class MainPage(webapp2.RequestHandler):
-  def write_response(self, target_page, params={}):
-    template = jinja_environment.get_template(target_page)
-    content = template.render(params)
-    self.response.out.write(content)
-
-  def get(self):
-    """Renders index.html."""
-    if self.request.headers['Host'] == 'apprtc.net':
-      webapp2.redirect('https://www.apprtc.net', permanent=True)
-    # Parse out parameters from request.
-    params = get_room_parameters(self.request, None, None, None)
-    # room_id/room_link will not be included in the returned parameters
-    # so the client will show the landing page for room selection.
-    self.write_response('index_template.html', params)
-
 class RoomPage(webapp2.RequestHandler):
   def write_response(self, target_page, params={}):
     template = jinja_environment.get_template(target_page)
@@ -604,7 +588,6 @@ class TurnPage(webapp2.RequestHandler):
         }))
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
     ('/a/', analytics_page.AnalyticsPage),
     ('/compute/(\w+)/(\S+)/(\S+)', compute_page.ComputePage),
     ('/join/([a-zA-Z0-9-_]+)', JoinPage),

@@ -31,7 +31,6 @@ var UI_CONSTANTS = {
   miniVideo: '#mini-video',
   muteAudioSvg: '#mute-audio',
   muteVideoSvg: '#mute-video',
-  newRoomButton: '#new-room-button',
   newRoomLink: '#new-room-link',
   remoteVideo: '#remote-video',
   rejoinButton: '#rejoin-button',
@@ -67,10 +66,7 @@ var AppController = function(loadingParams) {
   this.rejoinLink_ = $(UI_CONSTANTS.rejoinLink);
   this.newRoomLink_ = $(UI_CONSTANTS.newRoomLink);
   this.rejoinButton_ = $(UI_CONSTANTS.rejoinButton);
-  this.newRoomButton_ = $(UI_CONSTANTS.newRoomButton);
 
-  this.newRoomButton_.addEventListener('click',
-      this.onNewRoomClick_.bind(this), false);
   this.rejoinButton_.addEventListener('click',
       this.onRejoinClick_.bind(this), false);
 
@@ -220,12 +216,7 @@ AppController.prototype.finishCallSetup_ = function(roomId) {
     }.bind(this);
 
     window.onpopstate = function(event) {
-      if (!event.state) {
-        // TODO (chuckhays) : Resetting back to room selection page not
-        // yet supported, reload the initial page instead.
-        trace('Reloading main page.');
-        location.href = location.origin;
-      } else {
+      if (event.state) {
         // This could be a forward request to open a room again.
         if (event.state.roomLink) {
           location.href = event.state.roomLink;

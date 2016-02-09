@@ -13,7 +13,7 @@ MEMCACHE_PORT=11211
 
 LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
-TURN_BASE_URL = 'https://chat.integration.grandrounds.com'
+TURN_BASE_URL = 'https://chat.grandrounds.com'
 TURN_URL_TEMPLATE = '%s/turn?username=%s&key=%s'
 CEOD_KEY = 'foobar'
 
@@ -22,12 +22,12 @@ WSS_INSTANCE_HOST_KEY = 'host_port_pair'
 WSS_INSTANCE_NAME_KEY = 'vm_name'
 WSS_INSTANCE_ZONE_KEY = 'zone'
 WSS_INSTANCES = [{
-    WSS_INSTANCE_HOST_KEY: 'chat.integration.grandrounds.com:8089',
+    WSS_INSTANCE_HOST_KEY: 'chat.grandrounds.com:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-a'
 }
 , {
-    WSS_INSTANCE_HOST_KEY: 'chat.integration.grandrounds.com:8089',
+    WSS_INSTANCE_HOST_KEY: 'chat.grandrounds.com:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std-2',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-f'
 }]

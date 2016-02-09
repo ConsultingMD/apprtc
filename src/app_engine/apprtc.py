@@ -576,8 +576,8 @@ class TurnPage(webapp2.RequestHandler):
     hashed = hmac.new(TURN_SERVER_SECRET_KEY, new_username, sha1)
     password = hashed.digest().encode("base64").rstrip('\n')
 
-    turn_udp_uri = 'turn:%s:3478?transport=udp' % 'chat.integration.grandrounds.com'
-    turn_tcp_uri = 'turn:%s:3478?transport=tcp' % 'chat.integration.grandrounds.com'
+    turn_udp_uri = 'turn:%s:3478?transport=udp' % 'chat.grandrounds.com'
+    turn_tcp_uri = 'turn:%s:3478?transport=tcp' % 'chat.grandrounds.com'
 
     self.response.write(json.dumps({
             'username':new_username,

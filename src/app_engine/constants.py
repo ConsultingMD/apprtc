@@ -14,8 +14,8 @@ MEMCACHE_PORT=11211
 LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 TURN_BASE_URL = 'https://chat.grandrounds.com'
-TURN_URL_TEMPLATE = '%s/turn?username=%s&key=%s'
-CEOD_KEY = 'foobar'
+TURN_URL_TEMPLATE = '%s/turn?username=%s'
+TURN_SERVER_SECRET_KEY = '!Di5XI$8'
 
 # Dictionary keys in the collider instance info constant.
 WSS_INSTANCE_HOST_KEY = 'host_port_pair'

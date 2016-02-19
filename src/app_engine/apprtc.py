@@ -28,9 +28,6 @@ from hashlib import sha1
 import hmac
 import time
 
-
-TURN_SERVER_SECRET_KEY = 'foobar'
-
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
@@ -265,7 +262,7 @@ def get_room_parameters(request, room_id, client_id, is_initiator):
   username = client_id if client_id is not None else generate_random(9)
   if len(turn_base_url) > 0:
     turn_url = constants.TURN_URL_TEMPLATE % \
-        (turn_base_url, username, constants.CEOD_KEY)
+        (turn_base_url, username)
   else:
     turn_url = ''
 
@@ -573,7 +570,7 @@ class TurnPage(webapp2.RequestHandler):
 
     unix_timestamp_tomorrow = int(time.time()) + (24*60*60)
     new_username = str(unix_timestamp_tomorrow)+':'+self.request.get('username')
-    hashed = hmac.new(TURN_SERVER_SECRET_KEY, new_username, sha1)
+    hashed = hmac.new(constants.TURN_SERVER_SECRET_KEY, new_username, sha1)
     password = hashed.digest().encode("base64").rstrip('\n')
 
     turn_udp_uri = 'turn:%s:3478?transport=udp' % 'chat.grandrounds.com'

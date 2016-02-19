@@ -76,9 +76,8 @@ class ProbeCEODPage(webapp2.RequestHandler):
 
   def probe_ceod(self):
     ceod_url = (constants.TURN_URL_TEMPLATE
-                % (constants.TURN_BASE_URL, 'prober', constants.CEOD_KEY))
-    sanitized_url = (constants.TURN_URL_TEMPLATE %
-                     (constants.TURN_BASE_URL, 'prober', '<obscured>'))
+                % (constants.TURN_BASE_URL, 'prober'))
+    sanitized_url = ceod_url
 
     error_message = None
     result = None

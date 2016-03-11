@@ -410,7 +410,7 @@ Call.prototype.onUserMediaSuccess_ = function(stream) {
 
 Call.prototype.onUserMediaError_ = function(error) {
   var errorMessage = 'There was an error. You need to allow https://chat.grandrounds.com ' +
-                     'access to your camera and microphone to use this service.'
+                     'access to your camera and microphone to use this service.';
   // this.onError_('getUserMedia error: ' + errorMessage);
   alert(errorMessage);
 };

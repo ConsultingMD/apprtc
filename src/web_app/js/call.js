@@ -409,9 +409,9 @@ Call.prototype.onUserMediaSuccess_ = function(stream) {
 };
 
 Call.prototype.onUserMediaError_ = function(error) {
-  var errorMessage = 'Failed to get access to local media. Error name was ' +
-      error.name + '. Continuing without sending a stream.';
-  this.onError_('getUserMedia error: ' + errorMessage);
+  var errorMessage = 'There was an error. You need to allow https://chat.grandrounds.com ' +
+                     'access to your camera and microphone to use this service.'
+  // this.onError_('getUserMedia error: ' + errorMessage);
   alert(errorMessage);
 };
 
